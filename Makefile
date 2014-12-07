@@ -1,7 +1,7 @@
 CC=g++
 LIM=21
 winCC=x86_64-w64-mingw32-g++
-winCFLAGS=-static -std=c++11 -DWINDOWS -DWINLIMIT=21
+winCFLAGS=-static -std=c++11 -DWINDOWS -DWINLIMIT=$(LIM)
 CFLAGS= -std=c++11 -DWINLIMIT=$(LIM)
 A=9
 default:
