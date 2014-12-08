@@ -17,24 +17,6 @@ Purpose: A C++ implementation of 21
 #include "libcards2.h"
 using namespace std;
 
-const char resetScr[]= { 0x1B , 0x5B , 0x48 , 0x1B , 0x5B , 0x32 , 0x4A };
-
-/*
- * Name: clearScreen()
- * Purpose: erase the console (for organization)
- * Works for both linux and windows if properly compiled
- * Args: none
- * Returns: void
- */
-void clearScreen()
-{
-#ifndef WINDOWS
-	cout << resetScr;
-#else
-	system("cls");
-#endif
-}
-
 /*
  * Name: resetGame
  * Purpose: reset the game deck of cards
@@ -44,6 +26,15 @@ void clearScreen()
  * 2. populates it with an ordered set of 52 cards
  * 3. shuffles that deck.
  */
+const char resetScr[]= { 0x1B , 0x5B , 0x48 , 0x1B , 0x5B , 0x32 , 0x4A };
+void clearScreen()
+{
+#ifndef WINDOWS
+	cout << resetScr;
+#else
+	system("cls");
+#endif
+}
 void resetGame(Deck &gameDeck)
 {
 	clearScreen();
